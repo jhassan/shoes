@@ -127,15 +127,47 @@
 		// Add Purchase Stock
 		case "AddPurchaseStock":
 
+			$currentValue = $_POST['arrGroup'];	
+			if(!empty($currentValue))
+			{
 			$arr = array(
 						'article_no' 	=> $_POST['article_no'],
 						'group_id' 		=> $_POST['arrGroup'],
-						'party_id' 		=> $_POST['party_id'],
-						'sale_price' 	=> $_POST['sale_price'],
-						'purchase_price'=> $_POST['purchase_price'],
+						'party_id' 		=> (int)$_POST['party_id'],
+						'sale_price' 	=> (int)$_POST['sale_price'],
+						'purchase_price'=> (int)$_POST['purchase_price'],
 						'date_purchase' => date("Y-m-d H:i:s")
 						);
 			$nLastID = InsertRec("tbl_purchase", $arr);
+			$explodeValue = explode("-", $currentValue);
+			$start = $explodeValue[0];
+			$end = $explodeValue[1];
+			if($currentValue == "02-05")
+				$gender = "C";
+			elseif($currentValue == "03-07")
+				$gender = "C";
+			elseif($currentValue == "06-11")
+				$gender = "L";
+			elseif($currentValue == "36-41")
+				$gender = "L";
+			elseif($currentValue == "39-45")
+				$gender = "G";
+			for($i = $start; $i <= $end; $i++)
+			{
+				$start = sprintf('%02d', $start);
+				$size_code = $gender.'_'.$start;
+				$arrDetail = array(
+						'size_code' 	=> $size_code,
+						'purchase_id' 	=> $nLastID,
+						'sh_credit' 	=> $_POST[$size_code]
+						);
+				//echo $_POST[$size_code]."*****"; die;
+				if(isset($_POST[$size_code]) && $_POST[$size_code] != "")
+				$nLastDetailID = InsertRec("tbl_purchase_detail", $arrDetail);
+				$start++;
+			}
+			header("Location: purchase_stock");				
+		}
 
 		break;	
 

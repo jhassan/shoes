@@ -56,10 +56,11 @@
                                     </div>
                                     <div class="form-group col-lg-2">
                                         <label>Party</label>
-                                        <?php ArrayComboBox("party_id", $arrParty, '', true, "", "---Select Party---", "required form-control", "");?>
+                                        <?php ArrayComboBox("party_id", $arrParty, '', true, "", "---Select Party---", "form-control", "");?>
                                     </div>
-                                    <?php TextField("Sale Price", "sale_price", $sale_price, "10","2","form-control required number_only"); ?>
                                     <?php TextField("Purchase Price", "purchase_price", $purchase_price, "10","2","form-control required number_only"); ?>
+                                    <?php TextField("Sale Price", "sale_price", $sale_price, "10","2","form-control required number_only"); ?>
+                                    
                                     <div class="clear"></div>
                                     <div class="form-group col-lg-12">
                                     <label class="pull-left hide" id="LabelShoesSize">Shoes Sizes</label>
