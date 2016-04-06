@@ -16,7 +16,7 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Family Member Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="users">Add Family Member</a>
+                                    <a href="purchase_stock">Add Purchase Stock</a>
                                 </li>
                                 <li>
                                     <a href="view_users">View Family Member</a>

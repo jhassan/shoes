@@ -93,6 +93,37 @@
 			header("Location: view_users");
 			//}
 		break;
+
+		// Get All Shoes Sizes
+		case "GetAllShoesSizes":
+
+			$currentValue = $_POST['currentValue'];
+			if(!empty($currentValue))
+			{
+				$explodeValue = explode("-", $currentValue);
+				$start = $explodeValue[0];
+				$end = $explodeValue[1];
+				if($currentValue == "02-05")
+					$gender = "C";
+				elseif($currentValue == "03-07")
+					$gender = "C";
+				elseif($currentValue == "06-11")
+					$gender = "L";
+				elseif($currentValue == "36-41")
+					$gender = "L";
+				elseif($currentValue == "39-45")
+					$gender = "G";
+				for($i = $start; $i <= $end; $i++)
+				{
+					  $start = sprintf('%02d', $start);
+					  $name = $gender.'_'.$start;
+						echo '<input type="text" style="width: 70px; float: left; margin: 0 10px 0 10px;" class="form-control number_only" placeholder="'.$start.'" name="'.$name.'" value="" maxlength="4">';
+						$start++;
+				}				
+			}
+			
+		break;
+
 		
 		// Banner Management
 		case "AddBanner":

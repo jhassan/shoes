@@ -664,7 +664,7 @@
 		}
 		else
 		{
-			echo "<select name=$strName id=$strName onChange=\"javascript: $strOnChange\" style='$Style' class=$strClass><br>";
+			echo "<select name=$strName id=$strName onChange=\"javascript: $strOnChange\" style='$Style' class='$strClass'><br>";
 			if(!empty($strFirstOption))
 			echo "<option value=\"$nSelectedVal\">$strFirstOption</option>";
 		}
