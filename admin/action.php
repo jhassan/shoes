@@ -124,6 +124,21 @@
 			
 		break;
 
+		// Add Purchase Stock
+		case "AddPurchaseStock":
+
+			$arr = array(
+						'article_no' 	=> $_POST['article_no'],
+						'group_id' 		=> $_POST['arrGroup'],
+						'party_id' 		=> $_POST['party_id'],
+						'sale_price' 	=> $_POST['sale_price'],
+						'purchase_price'=> $_POST['purchase_price'],
+						'date_purchase' => date("Y-m-d H:i:s")
+						);
+			$nLastID = InsertRec("tbl_purchase", $arr);
+
+		break;	
+
 		
 		// Banner Management
 		case "AddBanner":
