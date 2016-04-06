@@ -1,0 +1,25 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^index$ index.php [L]
+RewriteRule ^index/(.*)$ ^index.php?error=1&%{QUERY_STRING} [R]
+
+RewriteRule home$ home.php [L]
+RewriteRule logout$ logout.php [L]
+
+RewriteRule ^users/email$ users.php?msg=email
+RewriteRule ^users/login$ users.php?msg=login
+RewriteRule ^users/(.*)$ users.php?id=$1&%{QUERY_STRING} [R]
+
+RewriteRule ^banners$ banners.php [L]
+RewriteRule ^view_banners$ view_banners.php [L]
+
+
+
+RewriteRule ^users$ users.php [L]
+RewriteRule ^view_users$ view_users.php [L]
+
+RewriteRule ^air_lines/(.*)$ air_lines.php?id=$1&%{QUERY_STRING} [R]
+RewriteRule ^air_lines$ air_lines.php [L]
+RewriteRule ^view_air_lines$ view_air_lines.php [L]
+
