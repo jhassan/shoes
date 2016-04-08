@@ -59,6 +59,7 @@
 	.m-r-10{ margin-left: 10px !important; }
 	.m-r-15{ margin-left: 15px !important; }
 	.m-r-20{ margin-left: 20px !important; }
+    .bld{ font-weight: bold !important; }
     </style>
 
 </head>
