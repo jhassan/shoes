@@ -19,7 +19,10 @@
                                     <a href="purchase_stock">Add Purchase Stock</a>
                                 </li>
                                 <li>
-                                    <a href="view_users">View Purchase Stock</a>
+
+                                    
+                                    <a href="view_purchase_stock">View Purchase Stock</a>
+
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

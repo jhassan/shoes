@@ -17,7 +17,7 @@ RewriteRule ^view_shoes_parties$ view_shoes_parties.php [L]
 
 
 RewriteRule ^purchase_stock$ purchase_stock.php [L]
-RewriteRule ^view_users$ view_users.php [L]
+RewriteRule ^view_purchase_stock$ view_purchase_stock.php [L]
 
 RewriteRule ^air_lines/(.*)$ air_lines.php?id=$1&%{QUERY_STRING} [R]
 RewriteRule ^air_lines$ air_lines.php [L]
