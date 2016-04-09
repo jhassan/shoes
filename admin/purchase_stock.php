@@ -56,14 +56,25 @@
                                     </div>
                                     <div class="form-group col-lg-2">
                                         <label>Party</label>
-                                        <?php ArrayComboBox("party_id", $arrParty, '', true, "", "---Select Party---", "form-control", "");?>
+                                        <select class="form-control" id="party" name="party_id">
+                                          <option value="">---Select Party---</option>
+                                          <?php 
+                                            $sql="SELECT * FROM party_name ORDER BY party_id DESC"; //pr($sql);
+                                            $result = MySQLQuery($sql);
+                                            while($row = mysql_fetch_array($result)) {
+                                                //var_dump($row); die;
+                                          ?>
+                                          <option value="<?php echo $row['party_id']?>"><?php echo $row['party_name']?></option>
+                                            <?php } ?>
+                                        </select>
+
                                     </div>
                                     <?php TextField("Purchase Price", "purchase_price", $purchase_price, "10","2","form-control required number_only"); ?>
                                     <?php TextField("Sale Price", "sale_price", $sale_price, "10","2","form-control required number_only"); ?>
                                     
                                     <div class="clear"></div>
                                     <div class="form-group col-lg-12">
-                                    <label class="pull-left hide" id="LabelShoesSize">Shoes Sizes</label>
+                                    <label class="pull-left hide m-t-10" id="LabelShoesSize">Shoes Sizes</label>
                                     <div id="ShowShoesSizes"> 
                                     </div>
                                     </div>

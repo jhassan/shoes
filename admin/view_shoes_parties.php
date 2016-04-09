@@ -14,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">View Banners</h1>
+                    <h1 class="page-header">View Parties</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -31,26 +31,23 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Banners</th>
-                                            <th>Status</th>
+                                            <th>Party Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
        
                                     <?php
-                                    	$SQL = "SELECT * FROM tblbanner ORDER BY banner_id DESC";			
-																																												$result = MySQLQuery($SQL);
-																																												while($row = mysql_fetch_array($result)) { // ,MYSQL_ASSOC
-																																												$banner_status = $row['banner_status'];
-																																												if($banner_status == 1) $banner_status = "Enable"; else $banner_status = "Disable"; 
-																																												?>
+                                        $SQL = "SELECT * FROM party_name ORDER BY party_id DESC";           
+                                        $result = MySQLQuery($SQL);
+                                        while($row = mysql_fetch_array($result)) { // ,MYSQL_ASSOC 
+                                            // pr($row); die;
+                                    ?>
                                         <tr class="odd gradeX" id="DelID_<?php echo $row['user_id'];?>">
-                                            <td class="left"><img src="images/<?php echo $row['banner_image'];?>" height="30" width="60" alt="Banner Image"></td>
-                                            <td class="center"><?php echo $banner_status;?></td>
-                                            <td class="center"><a href="banners?id=<?php echo $row['banner_id'];?>"><img height="20" width="20" src="../images/edit.png" alt="Edit"></a>&nbsp;&nbsp;&nbsp;<a id="<?php echo $row['banner_id'];?>" class='clsDelete'><img data-target="#myModal" data-toggle="modal" src="../images/delete.png" height="16" width="16" alt="Delete"></a></td>
+                                            <td class="left"><?php echo $row['party_name']?></td>
+                                            <td class="center"><a href="add_shoes_parties?id=<?php echo $row['party_id'];?>"><img height="20" width="20" src="../images/edit.png" alt="Edit"></a>&nbsp;&nbsp;&nbsp;<a id="<?php echo $row['banner_id'];?>" class='clsDelete'><img data-target="#myModal" data-toggle="modal" src="../images/delete.png" height="16" width="16" alt="Delete"></a></td>
                                         </tr>
-									<?php } ?>	<?php ?>
+                                    <?php } ?>  <?php ?>
                                         
                                     </tbody>
                                 </table>
@@ -76,7 +73,7 @@
 
     </div>
     <!-- /#wrapper -->
-	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 
@@ -100,32 +97,32 @@
         $('#dataTables-example').DataTable({
                 responsive: true
         });
-		// Get Delete Record ID
-		jQuery(document).on('click','.clsDelete',function(e){
-			var DelID = jQuery(this).attr("id");
-			$("#currentID").val(DelID);
-		});	
-		
-		// Delete Record show Dialog Box
-		jQuery(document).on('click','#DeleteRecord',function(e){
-			var DelID = $("#currentID").val();
-			var action = "DeleteUsers";
-			jQuery.ajax({
-				type: "POST",
-				url: "action.php",
-				data: {DelID : DelID, action : action},
-				cache: false,
-				success: function(response)
-				{
-					if(response == "Record Deleted Successfully!")
-					{
-						jQuery("#DelID_"+DelID).hide();	
-						$("#myModal").modal('hide');
-					}
-					 
-				}
-			});
-		});
+        // Get Delete Record ID
+        jQuery(document).on('click','.clsDelete',function(e){
+            var DelID = jQuery(this).attr("id");
+            $("#currentID").val(DelID);
+        }); 
+        
+        // Delete Record show Dialog Box
+        jQuery(document).on('click','#DeleteRecord',function(e){
+            var DelID = $("#currentID").val();
+            var action = "DeleteUsers";
+            jQuery.ajax({
+                type: "POST",
+                url: "action.php",
+                data: {DelID : DelID, action : action},
+                cache: false,
+                success: function(response)
+                {
+                    if(response == "Record Deleted Successfully!")
+                    {
+                        jQuery("#DelID_"+DelID).hide(); 
+                        $("#myModal").modal('hide');
+                    }
+                     
+                }
+            });
+        });
     });
     </script>
 
