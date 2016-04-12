@@ -1,0 +1,13 @@
+SELECT `article_no`, `sh_credit`, `date_purchase`, `size_code`, SUM(`sh_credit`) AS credit_shoes, `tbl_purchase_detail`.`purchase_id`
+FROM `tbl_purchase`
+INNER JOIN `tbl_purchase_detail` ON `tbl_purchase_detail`.`purchase_id` = `tbl_purchase`.`purchase_id`
+ GROUP BY `size_code`
+
+
+==================
+
+SELECT `article_no`, `sh_credit`, `date_purchase`, `size_code`, SUM(`sh_credit`) AS credit_shoes, 
+`tbl_purchase_detail`.`purchase_id`, MAX(`sale_price`) AS shoes_price
+FROM `tbl_purchase`
+INNER JOIN `tbl_purchase_detail` ON `tbl_purchase_detail`.`purchase_id` = `tbl_purchase`.`purchase_id`
+ GROUP BY `size_code`

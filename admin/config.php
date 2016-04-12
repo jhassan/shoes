@@ -12,7 +12,7 @@
 	
 	// Shoes Size Group 
 	$arrGroup[] = "02-05";
-	$arrGroup[] = "03-07";
+	$arrGroup[] = "01-13";
 	$arrGroup[] = "06-11";
 	$arrGroup[] = "36-41";
 	$arrGroup[] = "39-45";

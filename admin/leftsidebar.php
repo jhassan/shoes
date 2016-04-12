@@ -39,14 +39,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="hide">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Air Lines<span class="fa arrow"></span></a>
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Stock Reports<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="air_lines">Add Air Lines</a>
-                                </li>
-                                <li>
-                                    <a href="view_air_lines">View Air Lines</a>
+                                    <a href="view_all_stock">View All Stock</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
