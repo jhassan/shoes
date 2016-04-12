@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Family</title>
+    <title>Shoes</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,6 +59,7 @@
 	.m-r-10{ margin-left: 10px !important; }
 	.m-r-15{ margin-left: 15px !important; }
 	.m-r-20{ margin-left: 20px !important; }
+    .bld{ font-weight: bold !important; }
     </style>
 
 </head>

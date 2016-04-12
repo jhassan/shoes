@@ -48,17 +48,33 @@
                                     <form role="form" action="action.php" id="myForm" method="post">
                                     <input type="hidden" name="action" id="action" value="AddPurchaseStock" />
                                        
-									<?php TextField("Art #", "article_num", $article_num, "10","3","form-control required"); ?>
+									<?php TextField("Art #", "article_no", $article_num, "10","2","form-control required"); ?>
                                 
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-lg-2">
                                         <label>Group</label>
                                         <?php ArrayComboBox("arrGroup", $arrGroup, $arrGroup, true, "", "---Select Group---", "required form-control get_group_size", "");?>
                                     </div>
-                                    <?php TextField("Sale Price", "sale_price", $sale_price, "10","3","form-control required number_only"); ?>
-                                    <?php TextField("Purchase Price", "purchase_price", $purchase_price, "10","3","form-control required number_only"); ?>
+                                    <div class="form-group col-lg-2">
+                                        <label>Party</label>
+                                        <select class="form-control" id="party" name="party_id">
+                                          <option value="">---Select Party---</option>
+                                          <?php 
+                                            $sql="SELECT * FROM party_name ORDER BY party_id DESC"; //pr($sql);
+                                            $result = MySQLQuery($sql);
+                                            while($row = mysql_fetch_array($result)) {
+                                                //var_dump($row); die;
+                                          ?>
+                                          <option value="<?php echo $row['party_id']?>"><?php echo $row['party_name']?></option>
+                                            <?php } ?>
+                                        </select>
+
+                                    </div>
+                                    <?php TextField("Purchase Price", "purchase_price", $purchase_price, "10","2","form-control required number_only"); ?>
+                                    <?php TextField("Sale Price", "sale_price", $sale_price, "10","2","form-control required number_only"); ?>
+                                    
                                     <div class="clear"></div>
                                     <div class="form-group col-lg-12">
-                                    <label class="pull-left hide" id="LabelShoesSize">Shoes Sizes</label>
+                                    <label class="pull-left hide m-t-10" id="LabelShoesSize">Shoes Sizes</label>
                                     <div id="ShowShoesSizes"> 
                                     </div>
                                     </div>

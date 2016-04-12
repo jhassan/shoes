@@ -13,25 +13,28 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Family Member Management<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Shoes Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="purchase_stock">Add Purchase Stock</a>
                                 </li>
                                 <li>
-                                    <a href="view_users">View Family Member</a>
+
+                                    
+                                    <a href="view_purchase_stock">View Purchase Stock</a>
+
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Banners <span class="fa arrow"></span></a>
+                       <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Shoes Parties <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="banners">Add Banners</a>
+                                    <a href="add_shoes_parties">Add Shoes Parties</a>
                                 </li>
                                 <li>
-                                    <a href="view_banners">View Banners</a>
+                                    <a href="view_shoes_parties">View Shoes Parties</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

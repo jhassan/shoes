@@ -14,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">View Family Members</h1>
+                    <h1 class="page-header">View Parties</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            View Family Members
+                            View Banners
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -31,31 +31,23 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Father Name</th>
-                                            <th>Mother Name</th>
-                                            <th>Husband/Wife</th>
+                                            <th>Party Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
        
                                     <?php
-                                    	$SQL = "SELECT * FROM our_family ORDER BY user_id DESC";			
-																																												$result = MySQLQuery($SQL);
-																																												while($row = mysql_fetch_array($result)) { // ,MYSQL_ASSOC
-																																												if(empty($row['dob']) || $row['dob'] == "0000-00-00") $row['dob'] = "N/A";
-																																												?>
+                                        $SQL = "SELECT * FROM party_name ORDER BY party_id DESC";           
+                                        $result = MySQLQuery($SQL);
+                                        while($row = mysql_fetch_array($result)) { // ,MYSQL_ASSOC 
+                                            // pr($row); die;
+                                    ?>
                                         <tr class="odd gradeX" id="DelID_<?php echo $row['user_id'];?>">
-                                            <td class="center"><?php echo $row['user_id'];?></td>
-                                            <td class="center"><?php echo $row['user_name'];?></td>
-                                            <td class="left"><?php echo MemberName($row['father_id']);?></td>
-                                            <td class="center"><?php echo MemberName($row['mother_id']);?></td>
-                                            <td class="center"><?php echo MemberName($row['spous_id']);?></td>
-                                            <td class="center"><a href="users?id=<?php echo $row['user_id'];?>"><img height="16" width="16" src="../images/edit.png" alt="Edit"></a>&nbsp;&nbsp;&nbsp;<a id="<?php echo $row['user_id'];?>" class='clsDelete'><img data-target="#myModal" data-toggle="modal" src="../images/delete.png" height="16" width="16" alt="Delete"></a></td>
+                                            <td class="left"><?php echo $row['party_name']?></td>
+                                            <td class="center"><a href="add_shoes_parties?id=<?php echo $row['party_id'];?>"><img height="20" width="20" src="../images/edit.png" alt="Edit"></a>&nbsp;&nbsp;&nbsp;<a id="<?php echo $row['banner_id'];?>" class='clsDelete'><img data-target="#myModal" data-toggle="modal" src="../images/delete.png" height="16" width="16" alt="Delete"></a></td>
                                         </tr>
-									<?php } ?>	<?php ?>
+                                    <?php } ?>  <?php ?>
                                         
                                     </tbody>
                                 </table>
@@ -81,7 +73,7 @@
 
     </div>
     <!-- /#wrapper -->
-	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 
@@ -105,32 +97,32 @@
         $('#dataTables-example').DataTable({
                 responsive: true
         });
-		// Get Delete Record ID
-		jQuery(document).on('click','.clsDelete',function(e){
-			var DelID = jQuery(this).attr("id");
-			$("#currentID").val(DelID);
-		});	
-		
-		// Delete Record show Dialog Box
-		jQuery(document).on('click','#DeleteRecord',function(e){
-			var DelID = $("#currentID").val();
-			var action = "DeleteUsers";
-			jQuery.ajax({
-				type: "POST",
-				url: "action.php",
-				data: {DelID : DelID, action : action},
-				cache: false,
-				success: function(response)
-				{
-					if(response == "Record Deleted Successfully!")
-					{
-						jQuery("#DelID_"+DelID).hide();	
-						$("#myModal").modal('hide');
-					}
-					 
-				}
-			});
-		});
+        // Get Delete Record ID
+        jQuery(document).on('click','.clsDelete',function(e){
+            var DelID = jQuery(this).attr("id");
+            $("#currentID").val(DelID);
+        }); 
+        
+        // Delete Record show Dialog Box
+        jQuery(document).on('click','#DeleteRecord',function(e){
+            var DelID = $("#currentID").val();
+            var action = "DeleteUsers";
+            jQuery.ajax({
+                type: "POST",
+                url: "action.php",
+                data: {DelID : DelID, action : action},
+                cache: false,
+                success: function(response)
+                {
+                    if(response == "Record Deleted Successfully!")
+                    {
+                        jQuery("#DelID_"+DelID).hide(); 
+                        $("#myModal").modal('hide');
+                    }
+                     
+                }
+            });
+        });
     });
     </script>
 
