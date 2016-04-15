@@ -7,7 +7,7 @@
 	// open a connection with MySQL server
 	// display an error message if connection
 	// was not properly openned
-	Function MySQLConnect()
+	function MySQLConnect()
 	{
 		$success= mysql_pconnect($GLOBALS["DB_Server"], $GLOBALS["DB_Username"], $GLOBALS["DB_Password"]);
 		//var_dump($success); die;

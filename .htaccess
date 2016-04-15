@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^index$ index.php [L]
+RewriteRule ^index/(.*)$ ^index.php?error=1&%{QUERY_STRING} [R]
+
+RewriteRule home$ home.php [L]
+RewriteRule logout$ logout.php [L]
+
+
+RewriteRule sale$ sale.php [L]
+
+

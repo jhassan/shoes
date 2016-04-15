@@ -7,6 +7,16 @@
 	$DB_Username ="root";
 	$DB_Password = "";
 	$DB_DBName = "shoes";
+
+	
+	function MySQLConnect()
+		{
+			$success= mysql_pconnect($GLOBALS["DB_Server"], $GLOBALS["DB_Username"], $GLOBALS["DB_Password"]);
+			//var_dump($success); die;
+			if (!$success)
+				echo mysql_errno() . ": " . mysql_error() . "<BR>\r\n";
+
+		}
 	
 	// Create connection
 	$conn = mysql_connect($DB_Server, $DB_Username, $DB_Password);
@@ -189,8 +199,35 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 	function pr($var)
 					{
 						echo "<pre>";
-						print_r($var);
+							print_r($var);
 						echo "</pre>";
 					}
+
+MySQLConnect();
+	// echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath; die;
+	if(($_SERVER["SCRIPT_NAME"] != $strLoginScriptPath) && (PHP_SAPI != "cli"))
+	{
+		 // echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath; die;
+		$strWhere = "user_email = '" . $_SESSION["strLogin"] . "' and user_password = '" . $_SESSION["strPassword"] . "' and user_type = 0";
+		$rstRow = GetRecord("tbluser", $strWhere);
+		// if we have not found this user
+		 print_r($rstRow); die;
+		if(empty($rstRow["user_id"]))
+		{
+			header("Location: index?error=1");
+			exit;
+		}
+		else
+		{
+		
+			$_SESSION["nUserId"] = $rstRow["user_id"];
+			$_SESSION["strUserName"] = $rstRow["user_name"];
+			$_SESSION["strUserAdmin"] = $rstRow["user_admin"];
+			$_SESSION["nEnableDisable"] = $rstRow["user_disabled"];
+		
+		}
+	}
+	else
+	{echo "out"; die;}
 
 ?>
