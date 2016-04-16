@@ -8,13 +8,13 @@
         <link rel="stylesheet" href="css/portfolio-4-col.css">
         <link rel="stylesheet" href="css/style.css">
  
-
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>    
     <script type="text/javascript">
-        $(function() {
-            $( "#shoes_size_code" ).autocomplete({
-                source: 'index.php'
-            });
-        });
+        // $(function() {
+        //     $( "#shoes_size_code" ).autocomplete({
+        //         source: 'index.php'
+        //     });
+        // });
     </script>
     <style type="text/css">
         @page  { size: auto;  margin: 0mm; }
@@ -59,6 +59,6 @@
     </style>
 
 </head>
-
+<?php include_once('front_functions.php');?>
 <body>
-        <?php include_once('front_functions.php');?>
+        

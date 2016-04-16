@@ -2,39 +2,42 @@
 	error_reporting(E_ERROR | E_WARNING | E_PARSE);
 	ini_set("register_globals", 1);
 	session_start();
-	//include_once('config.php');
+	include_once('config.php');
 	$DB_Server = "localhost";
 	$DB_Username ="root";
 	$DB_Password = "";
 	$DB_DBName = "shoes";
 
 	
-	function MySQLConnect()
-		{
-			$success= mysql_pconnect($GLOBALS["DB_Server"], $GLOBALS["DB_Username"], $GLOBALS["DB_Password"]);
-			//var_dump($success); die;
-			if (!$success)
-				echo mysql_errno() . ": " . mysql_error() . "<BR>\r\n";
+	// function MySQLConnect()
+	// 	{
+	// 		$success = mysqli_connect($GLOBALS["DB_Server"], $GLOBALS["DB_Username"], $GLOBALS["DB_Password"],$GLOBALS["DB_DBName"]);
+	// 		//$success= mysql_pconnect($GLOBALS["DB_Server"], $GLOBALS["DB_Username"], $GLOBALS["DB_Password"]);
+	// 		//var_dump($success); die;
+	// 		if (!$success)
+	// 			echo mysql_errno() . ": " . mysql_error() . "<BR>\r\n";
 
-		}
+	// 	}
 	
 	// Create connection
-	$conn = mysql_connect($DB_Server, $DB_Username, $DB_Password);
+	// $conn = mysql_connect($DB_Server, $DB_Username, $DB_Password);
 	
-	// Check connection
-	if (!$conn) {
-					die("Connection failed: " . mysqli_connect_error());
-	} else
-	{
-				mysql_select_db($DB_DBName ,	$conn);
-	}
+	// // Check connection
+	// if (!$conn) {
+	// 				die("Connection failed: " . mysqli_connect_error());
+	// } else
+	// {
+	// 			mysql_select_db($DB_DBName ,	$conn);
+	// }
 	
 	// send a query to MySQL server.
 	// display an error message if there
 	// was some error in the query
 	function MySQLQuery($query)
 	{
-		$success= mysql_db_query($GLOBALS["DB_DBName"], $query);
+		global $conn;
+		//$success= mysql_db_query($GLOBALS["DB_DBName"], $query);
+		$success = mysqli_query($conn,$query);
 
 		if(!$success)
 		{	
@@ -157,10 +160,10 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 
 		if(!empty($strCriteria))
 			$strQuery .= "where $strCriteria;";
-		
+		//echo $strQuery; die;
 		$nResult = MySQLQuery($strQuery);
 
-		return mysql_fetch_array($nResult);
+		return mysqli_fetch_array($nResult);
 	}
 	
 	
@@ -203,15 +206,16 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 						echo "</pre>";
 					}
 
-MySQLConnect();
-	// echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath; die;
-	if(($_SERVER["SCRIPT_NAME"] != $strLoginScriptPath) && (PHP_SAPI != "cli"))
+// MySQLConnect();
+	//echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath."---".PHP_SAPI; die;
+	if(($_SERVER["SCRIPT_NAME"] != $strLoginScriptPath) && (PHP_SAPI != "cli") && ($conn) )
 	{
-		 // echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath; die;
-		$strWhere = "user_email = '" . $_SESSION["strLogin"] . "' and user_password = '" . $_SESSION["strPassword"] . "' and user_type = 0";
+
+		//  echo $_SERVER["SCRIPT_NAME"]."==========".$strLoginScriptPath; die;
+		$strWhere = "user_login = '" . $_SESSION["strLogin"] . "' and user_password = '" . $_SESSION["strPassword"] . "' and user_type = 0";
 		$rstRow = GetRecord("tbluser", $strWhere);
 		// if we have not found this user
-		 print_r($rstRow); die;
+		// var_dump($rstRow["user_id"]); die;
 		if(empty($rstRow["user_id"]))
 		{
 			header("Location: index?error=1");

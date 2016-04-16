@@ -1,6 +1,6 @@
 
 
-         <?php    include_once('header.php');?>
+         <?php include_once('header.php');?>
     <!-- Navigation -->
     <div class="row "> 
         <div class="bs-example" data-example-id="inverted-navbar">
@@ -45,58 +45,11 @@
         <!-- /.row -->
         <div class="row" style="min-height:200px;">
         <div class="col-md-8 noprint" style="overflow: auto; max-height: 500px;">
-          <p>
-          	         	<button type="button" onclick="AddProductToSale(18, 'Almond',150);" title="Almond" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Almond</button>
- 	       	         	<button type="button" onclick="AddProductToSale(10, 'Black Berry',150);" title="Black Berry" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Black Berry</button>
- 	       	         	<button type="button" onclick="AddProductToSale(5, 'Blue Berry',150);" title="Blue Berry" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Blue Berry</button>
- 	       	         	<button type="button" onclick="AddProductToSale(24, 'Brown Sugar With Honey',150);" title="Brown Sugar With Honey" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Brown Sugar With Honey</button>
- 	       	         	<button type="button" onclick="AddProductToSale(13, 'Cadbury Chocolate',150);" title="Cadbury Chocolate" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Cadbury Chocolate</button>
- 	       	         	<button type="button" onclick="AddProductToSale(46, 'Capi Rose',150);" title="Capi Rose" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Capi Rose</button>
- 	       	         	<button type="button" onclick="AddProductToSale(38, 'Cappuccino',180);" title="Cappuccino" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Cappuccino</button>
- 	       	         	<button type="button" onclick="AddProductToSale(23, 'Caremal Crunch',150);" title="Caremal Crunch" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Caremal Crunch</button>
- 	       	         	<button type="button" onclick="AddProductToSale(31, 'Carrot',150);" title="Carrot" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Carrot</button>
- 	       	         	<button type="button" onclick="AddProductToSale(22, 'Chashew',150);" title="Chashew" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chashew</button>
- 	       	         	<button type="button" onclick="AddProductToSale(47, 'Chocolate brownie',220);" title="Chocolate brownie" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate brownie</button>
- 	       	         	<button type="button" onclick="AddProductToSale(34, 'Chocolate Hersheys',180);" title="Chocolate Hersheys" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate Hersheys</button>
- 	       	         	<button type="button" onclick="AddProductToSale(14, 'Chocolate Lovers',180);" title="Chocolate Lovers" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate Lovers</button>
- 	       	         	<button type="button" onclick="AddProductToSale(15, 'Chocolate with Almond',180);" title="Chocolate with Almond" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate with Almond</button>
- 	       	         	<button type="button" onclick="AddProductToSale(33, 'Chocolate with Caremal',180);" title="Chocolate with Caremal" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate with Caremal</button>
- 	       	         	<button type="button" onclick="AddProductToSale(17, 'Chocolate with Coconut',180);" title="Chocolate with Coconut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate with Coconut</button>
- 	       	         	<button type="button" onclick="AddProductToSale(36, 'Chocolate with Dry Fruit Mix',200);" title="Chocolate with Dry Fruit Mix" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate with Dry Fruit Mix</button>
- 	       	         	<button type="button" onclick="AddProductToSale(35, 'Chocolate With Peanut',180);" title="Chocolate With Peanut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate With Peanut</button>
- 	       	         	<button type="button" onclick="AddProductToSale(16, 'Chocolate with Walnut',180);" title="Chocolate with Walnut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Chocolate with Walnut</button>
- 	       	         	<button type="button" onclick="AddProductToSale(9, 'Coconut',150);" title="Coconut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Coconut</button>
- 	       	         	<button type="button" onclick="AddProductToSale(25, 'Coffee Lovers',150);" title="Coffee Lovers" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Coffee Lovers</button>
- 	       	         	<button type="button" onclick="AddProductToSale(37, 'Dates',150);" title="Dates" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Dates</button>
- 	       	         	<button type="button" onclick="AddProductToSale(30, 'Dry Fruit Mix',180);" title="Dry Fruit Mix" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Dry Fruit Mix</button>
- 	       	         	<button type="button" onclick="AddProductToSale(11, 'Jack Fruit',150);" title="Jack Fruit" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Jack Fruit</button>
- 	       	         	<button type="button" onclick="AddProductToSale(42, 'Kinder Joy',100);" title="Kinder Joy" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Kinder Joy</button>
- 	       	         	<button type="button" onclick="AddProductToSale(45, 'Kit kat',220);" title="Kit kat" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Kit kat</button>
- 	       	         	<button type="button" onclick="AddProductToSale(29, 'Kulfa',150);" title="Kulfa" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Kulfa</button>
- 	       	         	<button type="button" onclick="AddProductToSale(12, 'Lychees',150);" title="Lychees" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Lychees</button>
- 	       	         	<button type="button" onclick="AddProductToSale(3, 'Mango',150);" title="Mango" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Mango</button>
- 	       	         	<button type="button" onclick="AddProductToSale(27, 'Milo',150);" title="Milo" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Milo</button>
- 	       	         	<button type="button" onclick="AddProductToSale(49, 'Nestle water 1500 ML',70);" title="Nestle water 1500 ML" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Nestle water 1500 ML</button>
- 	       	         	<button type="button" onclick="AddProductToSale(48, 'Nestle water 500ML',40);" title="Nestle water 500ML" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Nestle water 500ML</button>
- 	       	         	<button type="button" onclick="AddProductToSale(41, 'Nutella',200);" title="Nutella" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Nutella</button>
- 	       	         	<button type="button" onclick="AddProductToSale(26, 'Oreo Fun',150);" title="Oreo Fun" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Oreo Fun</button>
- 	       	         	<button type="button" onclick="AddProductToSale(39, 'Oreo Orignal',180);" title="Oreo Orignal" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Oreo Orignal</button>
- 	       	         	<button type="button" onclick="AddProductToSale(8, 'Peach',150);" title="Peach" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Peach</button>
- 	       	         	<button type="button" onclick="AddProductToSale(20, 'Peanut',150);" title="Peanut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Peanut</button>
- 	       	         	<button type="button" onclick="AddProductToSale(44, 'Peanut Butter',220);" title="Peanut Butter" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Peanut Butter</button>
- 	       	         	<button type="button" onclick="AddProductToSale(4, 'Pine Apple',150);" title="Pine Apple" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Pine Apple</button>
- 	       	         	<button type="button" onclick="AddProductToSale(19, 'Pistacio',150);" title="Pistacio" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Pistacio</button>
- 	       	         	<button type="button" onclick="AddProductToSale(7, 'Raspberry',150);" title="Raspberry" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Raspberry</button>
- 	       	         	<button type="button" onclick="AddProductToSale(6, 'Red Cherry',150);" title="Red Cherry" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Red Cherry</button>
- 	       	         	<button type="button" onclick="AddProductToSale(2, 'Strawberry',150);" title="Strawberry" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Strawberry</button>
- 	       	         	<button type="button" onclick="AddProductToSale(32, 'Sweet Corns',150);" title="Sweet Corns" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Sweet Corns</button>
- 	       	         	<button type="button" onclick="AddProductToSale(1, 'Tooti Fruti',180);" title="Tooti Fruti" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Tooti Fruti</button>
- 	       	         	<button type="button" onclick="AddProductToSale(43, 'Topping',20);" title="Topping" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Topping</button>
- 	       	         	<button type="button" onclick="AddProductToSale(28, 'Vanila With Chocolate Chip Cookies',150);" title="Vanila With Chocolate Chip Cookies" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Vanila With Chocolate Chip Cookies</button>
- 	       	         	<button type="button" onclick="AddProductToSale(40, 'Vanilla',150);" title="Vanilla" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Vanilla</button>
- 	       	         	<button type="button" onclick="AddProductToSale(21, 'Walnut',150);" title="Walnut" style="text-align:left; font-size: 14px; font-weight: bold;" class="col-md-3 m-l-5 m-t-10 btn btn-success btn-lg">Walnut</button>
- 	                 
-        </p>
+        <div class="col-md-6">
+            <label>Select any shoes!</label>
+            <input type="text" id="search_id" class='form-control' onkeyup="autocomplet()">
+            <ul id="article_list_id"></ul>
+        </div>        
         </div>
         <div class="col-md-4" id="InvoiceDiv">          <div class="text-center"><img height="35" src="http://sales.pakcappellos.com/img/logo1.png" alt="Cappellos" /></div>
           <div class="bs-example" data-example-id="simple-table"> 
@@ -167,5 +120,70 @@
     
     </div>
 </body>
+
+<script type="text/javascript">
+// autocomplet : this function will be executed every time we change the text
+function autocomplet() {
+    var min_length = 0; // min caracters to display the autocomplete
+    var keyword = $('#search_id').val();
+    if (keyword.length >= min_length) {
+        $.ajax({
+            url: 'action.php?action=GetAllShoes',
+            type: 'POST',
+            data: {keyword:keyword},
+            success:function(data){
+               // console.log(data); return false;
+                $('#article_list_id').show();
+                $('#article_list_id').html(data);
+            }
+        });
+    } else {
+        $('#article_list_id').hide();
+    }
+}
+
+// set_item : this function will be executed when we select an item
+function set_item(item) {
+    // change input value
+    $('#search_id').val(item);
+    // hide proposition list
+    $('#article_list_id').hide();
+}
+
+function clickme(id)
+{
+    alert('I am here1'+id);
+}
+</script>
+<style type="text/css">
+.input_container1 {
+    height: 30px;
+    float: left;
+}
+.input_container1 input {
+    height: 20px;
+    width: 200px;
+    padding: 3px;
+    border: 1px solid #cccccc;
+    border-radius: 0;
+}
+.input_container1 ul {
+    width: 206px;
+    border: 1px solid #eaeaea;
+    position: absolute;
+    z-index: 9;
+    background: #f3f3f3;
+    list-style: none;
+}
+.input_container1 ul li {
+    padding: 2px;
+}
+.input_container1 ul li:hover {
+    background: #eaeaea;
+}
+#article_list_id {
+    display: none;
+}
+</style>
 
 </html>
