@@ -25,7 +25,3 @@ function set_item(item) {
 	$('#size_list_id').hide();
 }
 
-// function clickme(id)
-// {
-// 	alert('I am here1'+id);
-// }

@@ -11,6 +11,8 @@ $query = $pdo->prepare($sql);
 $query->bindParam(':keyword', $keyword, PDO::PARAM_STR);
 $query->execute();
 $list = $query->fetchAll();
+
+print_r($list);die;
 foreach ($list as $rs) {
 	// put in bold the written text
 	$size_code = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['size_code']);

@@ -48,10 +48,12 @@
         <div class="col-md-6">
             <label>Select any shoes!</label>
             <input type="text" id="search_id" class='form-control' onkeyup="autocomplet()">
-            <ul id="article_list_id"></ul>
+            <ul id="article_list_id" ></ul>
         </div>        
         </div>
-        <div class="col-md-4" id="InvoiceDiv">          <div class="text-center"><img height="35" src="http://sales.pakcappellos.com/img/logo1.png" alt="Cappellos" /></div>
+        
+        <div class="col-md-4" id="InvoiceDiv">          
+            <div class="text-center"><img height="35" src="http://sales.pakcappellos.com/img/logo1.png" alt="Cappellos" /></div>
           <div class="bs-example" data-example-id="simple-table"> 
           	<form class="form-signin" id="FormID" method="post" onsubmit="return false;">
         		<input type="hidden" name="_token" value="AV1SzkvuV6InJs1izXms9rsQ8P85odNu9mTxTc3A" />
@@ -150,10 +152,10 @@ function set_item(item) {
     $('#article_list_id').hide();
 }
 
-function clickme(id)
-{
-    alert('I am here1'+id);
-}
+// function clickme(id)
+// {
+//     alert('I am here1'+id);
+// }
 </script>
 <style type="text/css">
 .input_container1 {

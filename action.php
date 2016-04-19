@@ -20,15 +20,15 @@
 					INNER JOIN `tbl_purchase_detail` ON `tbl_purchase_detail`.`purchase_id` = `tbl_purchase`.`purchase_id`
 					WHERE `article_no` LIKE '".$keyword."'
 					GROUP BY `size_code`";
-					//echo $query; die;
+					// echo $query; die;
 			$list = MySQLQuery($query);
-			//print_r($list); die;	
+			 // pr($list); die;	
 			foreach ($list as $rs) {
 			// put in bold the written text
 			$article_no = str_replace($_POST['keyword'], '<b>'.$_POST['keyword'].'</b>', $rs['article_no']);
 			// add new option
-		    echo '<li onclick="set_item(\''.str_replace("'", "\'", $rs['article_no']).'\'); clickme('.$rs['country_id'].');" style="cursor: pointer;">'.$article_no.'</li>';
-		}
+		    // echo '<li onclick="set_item(\''.str_replace("'", "\'", $rs['article_no']).'\'); clickme('.$rs['purchase_detail_id'].');" style="cursor: pointer;">'.$article_no.'</li>';
+		}echo '<li onclick="AddProductToSale('$rs['purchase_id']),$rs['article_no'],$rs['purchase_detail_id']'); " style="cursor: pointer;">'.$article_no.'</li>';
 		break;
 		
 		
