@@ -166,6 +166,61 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 		return mysqli_fetch_array($nResult);
 	}
 	
+	/*	the function insert a record in strTable with
+		the values given by the associated array
+
+		strTable:		table name where record will be inserted
+		arrValue:		assoicated array with key-val pairs
+		returns:		ID of the record inserted
+	*/
+	function InsertRec($strTable, $arrValue)
+	{
+		$strQuery = "	insert into $strTable (";
+
+		reset($arrValue);
+		while(list ($strKey, $strVal) = each($arrValue))
+		{
+			$strQuery .= $strKey . ",";
+		}
+
+		// remove last comma
+		$strQuery = substr($strQuery, 0, strlen($strQuery) - 1);
+
+		$strQuery .= ") values (";
+
+		reset($arrValue);
+		while(list ($strKey, $strVal) = each($arrValue))
+		{
+			$strQuery .= "'" . FixString($strVal) . "',";
+		}
+
+		// remove last comma
+		$strQuery = substr($strQuery, 0, strlen($strQuery) - 1);
+		$strQuery .= ");";
+
+		// execute query
+		//echo $strQuery;
+		MySQLQuery($strQuery);
+		//echo $strQuery . "<br>";
+		
+		// return id of last insert record
+		return mysql_insert_id();
+	}
+	
+	/*	the function remove single quote from the string
+		and replace it with two single quotes
+
+		strString:		string to be fixed
+		returns:		fixed string
+	*/
+	function FixString($strString)
+	{
+		$strString = str_replace("'", "''", $strString);
+		$strString = str_replace("\'", "'", $strString);
+		
+		return $strString;
+	}
+	
 	
 	function MemberName($ID)
 	{
@@ -224,7 +279,7 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 		else
 		{
 		
-			$_SESSION["nUserId"] = $rstRow["user_id"];
+			$_SESSION["user_id"] = $rstRow["user_id"];
 			$_SESSION["strUserName"] = $rstRow["user_name"];
 			$_SESSION["strUserAdmin"] = $rstRow["user_admin"];
 			$_SESSION["nEnableDisable"] = $rstRow["user_disabled"];

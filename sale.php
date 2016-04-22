@@ -54,7 +54,7 @@
         
         <div class="col-md-4" id="InvoiceDiv">          
           <div class="bs-example" data-example-id="simple-table"> 
-          	<form class="form-signin" id="FormID" method="post" onsubmit="return false;">
+          	<form class="form-signin" name="FormID" id="FormID" method="post" onsubmit="return false;">
             <table class="table table table-bordered" width="100%" style="table-layout:fixed; margin-bottom:0px; font-size:12px;"> 
             <tbody class="border"> 
                 <tr> 
@@ -76,7 +76,7 @@
                     <th class="col-md-1">Qty</th> 
                     <th class="col-md-1">Amount</th> 
                 </tr> 
-                </thead> 
+            </thead> 
                     <tbody class="border" id="ShowSaleProduct"> 
                         <tr> 
                             <td class="col-md-2">Discount:<span id="txtDiscountAmount" class="p-l-10">0</span></td> 
@@ -96,11 +96,11 @@
                         </tr>
                         <tr class="noprint"> 
                             <td class="col-md-8"><strong>Paid Amount:</strong></td> 
-                            <td class="col-md-1 text-center" colspan="2"><input type="text" maxlength="6" maxlength="6" name="paid_amount" id="PaidAmount" value="0" class="number_only" onkeyup="GetAmount();" /></td> 
+                            <td class="col-md-1 text-center" colspan="2"><input type="text" maxlength="6" name="paid_amount" id="PaidAmount" value="0" class="number_only" onkeyup="GetAmount();" /></td> 
                         </tr> 
                         <tr class="noprint"> 
                             <td class="col-md-8"><strong>Change Amount:</strong></td> 
-                            <td class="col-md-1 text-center" colspan="2"><input type="text" maxlength="6" maxlength="6" name="ChangeAmount" id="ChangeAmount" value="0" class="number_only" /></td> 
+                            <td class="col-md-1 text-center" colspan="2"><input type="text" maxlength="6" name="change_amount" id="ChangeAmount" value="0" class="number_only" /></td> 
                         </tr>
                         <tr> 
                             <td class="col-md-12" colspan="3">Thanks for choosing Cappellos</td> 
@@ -263,7 +263,7 @@ function EmptyTextField()
           var str = "";
           //size_code = 36;
           str = "<tr class='count_product' id='Product_"+id+"' onclick='DeleteProduct("+id+","+shoes_price+");' class='cursor'>";
-          str += "<td class='col-md-8'>"+article_no+ " (" + size_code +")<input type='hidden' name='product_id[]' value='"+id+"' /></td>"; 
+          str += "<td class='col-md-8'>"+article_no+ " (" + size_code +")<input type='hidden' name='product_id[]' value='"+id+"' /><input type='hidden' name='size_code[]' value='"+size_code+"' /><input type='hidden' name='article_no[]' value='"+article_no+"' /></td>"; 
           str += "<td class='col-md-1 text-center'><span id='Qty_"+id+"'>1</span><input id='TotalQty_"+id+"' type='hidden' name='product_qty[]' value='1' /></td>"; 
           str += "<td class='col-md-1 text-center'><input id='ProductPrice_"+id+"' type='hidden' name='shoes_price[]' value='"+shoes_price+"' /><span id='TotalProductPrice_"+id+"'>"+shoes_price+"</span></td>"; 
           str += "</tr>";
@@ -321,17 +321,19 @@ function EmptyTextField()
           var DiscountAmount = $("#DiscountAmount").val();
           //var product_price = $("#DiscountAmount").val();
           var product_id = $("input[name='product_id[]']").map(function(){return $(this).val();}).get();
-          var product_price = $("input[name='product_price[]']").map(function(){return $(this).val();}).get();
+          var shoes_price = $("input[name='shoes_price[]']").map(function(){return $(this).val();}).get();
           var product_qty = $("input[name='product_qty[]']").map(function(){return $(this).val();}).get();
+		  var size_code = $("input[name='size_code[]']").map(function(){return $(this).val();}).get();
+		  var article_no = $("input[name='article_no[]']").map(function(){return $(this).val();}).get();
           $.ajax( {
               type: "GET",
-              url : 'sale_product',
-              data: { 'net_amount':NetAmount, 'discount_amount': DiscountAmount, 'product_id': product_id, 'product_price': product_price, 'product_qty': product_qty},
+              url : 'action.php?action=AddSaleDetails',
+              data: { 'net_amount':NetAmount, 'discount_amount': DiscountAmount, 'product_id': product_id, 'shoes_price': shoes_price, 'product_qty': product_qty, 'size_code': size_code, 'article_no': article_no},
               success: function( response ) {
                 if(response == 'done')
                 {
                   //printDiv();
-                  window.print();
+                  //window.print();
                   window.location.href = "/sale";
                   return false;
                 }
