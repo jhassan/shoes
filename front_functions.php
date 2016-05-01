@@ -175,6 +175,7 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 	*/
 	function InsertRec($strTable, $arrValue)
 	{
+		global $conn;
 		$strQuery = "	insert into $strTable (";
 
 		reset($arrValue);
@@ -198,13 +199,16 @@ function pagination($query,$per_page=10,$page=1,$url='?'){
 		$strQuery = substr($strQuery, 0, strlen($strQuery) - 1);
 		$strQuery .= ");";
 
+
 		// execute query
 		//echo $strQuery;
 		MySQLQuery($strQuery);
 		//echo $strQuery . "<br>";
-		
+		$sql = "SELECT MAX(`sale_id`) AS last_insert_id1 FROM `tbl_sale`";
+		$last_inserted_id = mysqli_query($conn,$sql);
+		$row = mysqli_fetch_array($last_inserted_id);
 		// return id of last insert record
-		return mysql_insert_id();
+		return $row['last_insert_id1']++;
 	}
 	
 	/*	the function remove single quote from the string

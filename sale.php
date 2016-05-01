@@ -1,40 +1,14 @@
 
 
-         <?php include_once('header.php');?>
-    <!-- Navigation -->
-    <div class=""> 
-        <div class="bs-example" data-example-id="inverted-navbar">
-            <nav class="navbar navbar-inverse">
-              <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/sale">Shoes</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="">Today Sale</a>
-                    </li>
-                    <li>
-                        <a href="">Return Invoice</a>
-                    </li>
-                    <li>
-                        <a href="logout.php">Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-              </div><!-- /.container-fluid -->
-            </nav>
-          </div>
-    </div>
+         <?php include_once('header.php');
+         // Get invoice id
+         $created_at = date("Y-m-d");
+          $sql_invoice = "SELECT MAX(`invoice_id`)+1 AS invoice_id FROM `tbl_sale` where created_at = '".$created_at."'";
+          $row_invoice_id = mysqli_query($conn,$sql_invoice);
+          $array = mysqli_fetch_array($row_invoice_id);
+          $last_invoice_id = $array['invoice_id'];
+         ?>
+
     
 
     <!-- Page Content -->
@@ -64,7 +38,7 @@
                     <td colspan="2" style="overflow: hidden;" class="text-center">Tahir Plaza Dahli Gate Multan</td>
                 </tr>
                 <tr> 
-                    <td width="45%" class="col-md-6">Invoice#: 0</td> 
+                    <td width="45%" class="col-md-6">Invoice#: <?php echo $last_invoice_id++; ?></td> 
                     <td width="55%" class="col-md-6">Date:<?php echo date("d-M-Y")?></td> 
                 </tr> 
               </tbody>
@@ -334,7 +308,7 @@ function EmptyTextField()
                 {
                   //printDiv();
                   //window.print();
-                  window.location.href = "/sale";
+                  window.location.href = "/shoes/sale";
                   return false;
                 }
                 //alert( response ); return false;

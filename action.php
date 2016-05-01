@@ -35,18 +35,29 @@
 		
 		case "AddSaleDetails":
 		//pr('fawad'); die;
+		  $created_at = date("Y-m-d");
+          $sql_invoice = "SELECT MAX(`invoice_id`)+1 AS invoice_id FROM `tbl_sale` where created_at = '".$created_at."'";
+          $row_invoice_id = mysqli_query($conn,$sql_invoice);
+          $array = mysqli_fetch_array($row_invoice_id);
+          $last_invoice_id = $array['invoice_id'];
+
 			$arrMaster = array(
 				'discount_amount' => $_REQUEST['discount_amount'],
+				'invoice_id' => $last_invoice_id,
 				'net_amount' => $_REQUEST['net_amount'],
+				'created_at' => date('Y-m-d'),
 				'user_id' => $_SESSION['user_id']
 				);
+			//print_r($arrMaster); die;
 				$nLastID = InsertRec("tbl_sale", $arrMaster);
-				pr($nLastID); die;
+				//pr($nLastID); die;
 			if($nLastID != 0)
 			{	
 			$product_id = $_REQUEST['product_id'];
-			for($i=0; coutn($product_id)>$i; $i++)
+
+			for($i=0; $i<count($product_id); $i++)
 			{
+				//print_r($_REQUEST['shoes_price'][$i]); die;
 				$arrDetail = array(
 				'shoes_price' => $_REQUEST['shoes_price'][$i],
 				'product_qty' => $_REQUEST['product_qty'][$i],
